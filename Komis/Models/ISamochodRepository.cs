@@ -2,9 +2,13 @@
 
 namespace Komis.Models
 {
-    interface ISamochodRepository
+    public interface ISamochodRepository
     {
         IEnumerable<Samochod> PobierzWszystkieSamochody();
-        Samochod PobierzSamochodId(int SamochodId);
+        Samochod PobierzSamochodOId(int samochodId);
+
+        //void DodajSamochod(Samochod samochod);
+       // void EdytujSamochod(Samochod samochod);
+      //  void UsunSamochod(Samochod samochod);
     }
 }
