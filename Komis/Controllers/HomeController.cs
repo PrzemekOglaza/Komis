@@ -1,4 +1,5 @@
 ﻿using Komis.Models;
+using Komis.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
@@ -18,10 +19,14 @@ namespace Komis.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            ViewBag.Tytul = "Przegląd Samochodów";
-
             var samochody = _samochodRepository.PobierzWszystkieSamochody().OrderBy(s => s.Marka);
-            return View(samochody);
+
+            var homeVM = new HomeVM()
+            {
+                Tytul = "Przegląd Samochodów",
+                Samochody = samochody.ToList()
+            };
+            return View(homeVM);
         }
     }
 }
